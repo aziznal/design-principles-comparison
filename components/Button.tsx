@@ -8,7 +8,7 @@ export default function Button({ children }: PropsWithChildren) {
 
   return (
     <button
-      className="py-3 px-10"
+      className="py-[16px] px-10 flex items-center justify-center leading-none"
       style={{
         background: "none",
         color: "white",

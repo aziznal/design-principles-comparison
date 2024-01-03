@@ -31,6 +31,12 @@ export type Props = {
     cardsGap: string;
     cardGap: string;
   };
+
+  about: {
+    gap: string;
+    titleFontSize: string;
+    lineHeight: string;
+  };
 };
 
 const PRIMARY_COLOR = "#617DCE";

@@ -13,7 +13,7 @@ export default function Home() {
             secondaryColor: "#1AC4CF",
             tertiaryColor: "#1B2544",
             lineHeight: "1.5",
-            sectionGapPx: 20,
+            sectionGapPx: 100,
 
             header: {
               blockPadding: "1rem",
@@ -35,6 +35,12 @@ export default function Home() {
               height: "400px",
               cardGap: ".75rem",
               cardsGap: "3rem",
+            },
+
+            about: {
+              gap: "1.5rem",
+              titleFontSize: "45px",
+              lineHeight: "1.5",
             },
           }}
         >
@@ -73,6 +79,12 @@ export default function Home() {
               height: "200px",
               cardGap: "1rem",
               cardsGap: "1rem",
+            },
+
+            about: {
+              gap: "1rem",
+              titleFontSize: "2rem",
+              lineHeight: "1.5",
             },
           }}
         >
