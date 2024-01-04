@@ -42,6 +42,17 @@ export default function Home() {
               titleFontSize: "45px",
               lineHeight: "1.5",
             },
+
+            bubbles: {
+              bubbleGap: "1rem",
+              bubblesGap: "2rem",
+
+              bubble1Color: "#BA3963",
+              bubble2Color: "#FFD600",
+              bubble3Color: "#00EDA6",
+
+              fontSize: "1rem",
+            },
           }}
         >
           <ExamplePage />
@@ -85,6 +96,17 @@ export default function Home() {
               gap: "1rem",
               titleFontSize: "2rem",
               lineHeight: "1.5",
+            },
+
+            bubbles: {
+              bubbleGap: "1rem",
+              bubblesGap: "1rem",
+
+              bubble1Color: "#BA3963",
+              bubble2Color: "#FFD600",
+              bubble3Color: "#00EDA6",
+
+              fontSize: "1rem",
             },
           }}
         >

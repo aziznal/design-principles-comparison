@@ -37,6 +37,17 @@ export type Props = {
     titleFontSize: string;
     lineHeight: string;
   };
+
+  bubbles: {
+    bubbleGap: string;
+    bubblesGap: string;
+
+    bubble1Color: string;
+    bubble2Color: string;
+    bubble3Color: string;
+
+    fontSize: string;
+  };
 };
 
 const PRIMARY_COLOR = "#617DCE";

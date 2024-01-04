@@ -2,8 +2,39 @@
 
 import { useProps } from "./PropProvider";
 
-export default function Bubble() {
+type BubbleProps = {
+  color: string;
+  text: string;
+  children: React.ReactNode;
+};
+
+export default function Bubble({ color, text, children }: BubbleProps) {
   const props = useProps();
 
-  return <h1>Bubble</h1>;
+  return (
+    <div
+      className="flex items-center flex-1"
+      style={{
+        gap: props.bubbles.bubbleGap,
+      }}
+    >
+      <div
+        className="rounded-full flex items-center justify-center p-5 border-[10px]"
+        style={{
+          backgroundColor: color,
+          borderColor: props.secondaryColor,
+        }}
+      >
+        {children}
+      </div>
+
+      <p
+        style={{
+          fontSize: props.bubbles.fontSize,
+        }}
+      >
+        {text}
+      </p>
+    </div>
+  );
 }

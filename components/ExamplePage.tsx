@@ -26,6 +26,8 @@ export default function ExamplePage() {
 
       <About />
 
+      <hr className="border-gray-400 mx-[146px]" />
+
       <Bubbles />
 
       <Footer />
