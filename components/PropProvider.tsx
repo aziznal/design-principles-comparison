@@ -48,6 +48,10 @@ export type Props = {
 
     fontSize: string;
   };
+
+  footer: {
+    gap: string;
+  };
 };
 
 const PRIMARY_COLOR = "#617DCE";

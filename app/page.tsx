@@ -53,6 +53,10 @@ export default function Home() {
 
               fontSize: "1rem",
             },
+
+            footer: {
+              gap: "2rem",
+            },
           }}
         >
           <ExamplePage />
@@ -107,6 +111,10 @@ export default function Home() {
               bubble3Color: "#00EDA6",
 
               fontSize: "1rem",
+            },
+
+            footer: {
+              gap: "1rem",
             },
           }}
         >
