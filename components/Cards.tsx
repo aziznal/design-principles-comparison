@@ -1,3 +1,5 @@
+"use client";
+
 import { Cctv, CircleDollarSign, Lightbulb } from "lucide-react";
 import Card from "./Card";
 import { useProps } from "./PropProvider";
