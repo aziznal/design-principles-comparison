@@ -3,7 +3,10 @@ import { PropProvider } from "@/components/PropProvider";
 
 export default function Home() {
   return (
-    <div className="flex justify-center items-center w-full h-full">
+    <div
+      className="flex justify-center items-center w-full h-full"
+      style={{ zoom: "67%" }}
+    >
       <div className="flex-1 flex flex-col border-r-gray-400 border-r h-full pt-6">
         <h1 className="text-2xl font-bold text-center">Default</h1>
 
