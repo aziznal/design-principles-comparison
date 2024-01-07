@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useProps } from "./PropProvider";
 
 export default function Hero() {
-  const props = useProps();
+  const { props, setProps } = useProps();
 
   return (
     <div

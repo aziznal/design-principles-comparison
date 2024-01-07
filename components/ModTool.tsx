@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useProps } from "./PropProvider";
-import { Wrench } from "lucide-react";
+import { ChevronDownIcon, ChevronUpIcon, GripVertical } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export const ModTool = () => {
-  const props = useProps();
+  const { props, setProps } = useProps();
 
   const [toolPosition, setToolPosition] = useState({
     x: 0,
@@ -20,11 +21,12 @@ export const ModTool = () => {
     if (window === undefined) return;
 
     setToolPosition({
-      x: window === undefined ? 0 : window.innerWidth - 80,
+      x: window === undefined ? 0 : window.innerWidth / 2,
       y: 20,
     });
   }, []);
 
+  // drag handling
   useEffect(() => {
     if (window === undefined) return;
 
@@ -49,30 +51,52 @@ export const ModTool = () => {
 
   return (
     <div
-      className="absolute w-14 h-14 bg-blue-600 rounded-full flex flex-col items-center cursor-pointer hover:bg-blue-700 transition-colors duration-200"
+      className="absolute bg-white rounded-lg flex flex-col p-3 shadow-lg"
       style={{
-        top: toolPosition.y,
-        left: toolPosition.x,
-      }}
-      onMouseDown={(e) => {
-        e.stopPropagation();
-        e.preventDefault();
-        setIsToolDragging(true);
-      }}
-      onClick={(e) => {
-        e.stopPropagation();
-        e.preventDefault();
-
-        setIsToolOpen((state) => !state);
+        top: toolPosition.y - 4,
+        left: toolPosition.x - 4,
       }}
     >
-      <Wrench size={24} color="white" />
+      {/* Header */}
+      <div className="flex items-center w-[250px] justify-between">
+        <div className="flex gap-2">
+          <GripVertical
+            size={16}
+            className={cn(
+              "text-gray-400",
+              !isToolDragging && "cursor-grab",
+              isToolDragging && "cursor-grabbing"
+            )}
+            onMouseDown={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              setIsToolDragging(true);
+            }}
+          />
 
-      {isToolOpen && (
-        <div className="w-40 h-40 bg-white rounded-lg shadow-lg flex flex-col justify-center items-center">
-          <div className="flex flex-col items-center">Mod Tool Open!</div>
+          <span className="text-sm font-bold">Mod Tool</span>
         </div>
-      )}
+
+        <div className="cursor-pointer">
+          {!isToolOpen && (
+            <ChevronDownIcon
+              className="text-gray-400"
+              size={16}
+              onClick={() => setIsToolOpen(true)}
+            />
+          )}
+
+          {isToolOpen && (
+            <ChevronUpIcon
+              className="text-gray-400"
+              size={16}
+              onClick={() => setIsToolOpen(false)}
+            />
+          )}
+        </div>
+      </div>
+
+      {isToolOpen && <div className="mt-4">Content (Todo)</div>}
     </div>
   );
 };

@@ -9,7 +9,7 @@ import Hero from "./Hero";
 import { useProps } from "./PropProvider";
 
 export default function ExamplePage() {
-  const props = useProps();
+  const { props, setProps } = useProps();
 
   return (
     <div

@@ -4,7 +4,7 @@ import { PropsWithChildren } from "react";
 import { useProps } from "./PropProvider";
 
 export default function Card({ children }: PropsWithChildren) {
-  const props = useProps();
+  const { props, setProps } = useProps();
 
   return (
     <div

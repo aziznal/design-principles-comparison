@@ -5,7 +5,7 @@ import { useProps } from "./PropProvider";
 import Button from "./Button";
 
 export default function About() {
-  const props = useProps();
+  const { props, setProps } = useProps();
 
   return (
     <div className="flex w-full justify-between px-[146px]">

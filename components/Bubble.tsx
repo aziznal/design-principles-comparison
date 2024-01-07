@@ -9,7 +9,7 @@ type BubbleProps = {
 };
 
 export default function Bubble({ color, text, children }: BubbleProps) {
-  const props = useProps();
+  const { props, setProps } = useProps();
 
   return (
     <div

@@ -6,7 +6,7 @@ import Button from "./Button";
 import { useProps } from "./PropProvider";
 
 export default function Header() {
-  const props = useProps();
+  const { props, setProps } = useProps();
 
   return (
     <div

@@ -4,7 +4,7 @@ import Button from "./Button";
 import { useProps } from "./PropProvider";
 
 export default function Footer() {
-  const props = useProps();
+  const { props, setProps } = useProps();
 
   return (
     <div

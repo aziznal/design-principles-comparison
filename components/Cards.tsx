@@ -5,7 +5,7 @@ import Card from "./Card";
 import { useProps } from "./PropProvider";
 
 export default function Cards() {
-  const props = useProps();
+  const { props, setProps } = useProps();
 
   return (
     <div

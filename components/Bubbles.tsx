@@ -5,7 +5,7 @@ import Bubble from "./Bubble";
 import { useProps } from "./PropProvider";
 
 export default function Bubbles() {
-  const props = useProps();
+  const { props, setProps } = useProps();
 
   return (
     <div

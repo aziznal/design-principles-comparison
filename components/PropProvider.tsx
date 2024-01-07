@@ -1,6 +1,6 @@
 "use client";
 
-import { PropsWithChildren, createContext, useContext } from "react";
+import { PropsWithChildren, createContext, useContext, useState } from "react";
 
 export type Props = {
   primaryColor: string;
@@ -59,7 +59,9 @@ const SECONDARY_COLOR = "#1AC4CF";
 const TERTIARY_COLOR = "#1B2544";
 const LINE_HEIGHT = "1.5";
 
-const propContext = createContext<Props | undefined>(undefined);
+const propContext = createContext<
+  { props: Props; setProps: (props: Props) => void } | undefined
+>(undefined);
 
 // added nullish coalescing operator to prevent type error
 // since context can be undefined. Needed to add undefined
@@ -70,5 +72,16 @@ export const PropProvider = ({
   props,
   children,
 }: { props: Props } & PropsWithChildren) => {
-  return <propContext.Provider value={props}>{children}</propContext.Provider>;
+  const [liveProps, setLiveProps] = useState(props);
+
+  return (
+    <propContext.Provider
+      value={{
+        props: liveProps,
+        setProps: setLiveProps,
+      }}
+    >
+      {children}
+    </propContext.Provider>
+  );
 };
