@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useProps } from "./PropProvider";
 import { ChevronDownIcon, ChevronUpIcon, GripVertical } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Switch } from "./ui/switch";
+import { getDefaultProps } from "@/lib/default-props";
 
 export const ModTool = () => {
   const { props, setProps } = useProps();
@@ -48,6 +50,85 @@ export const ModTool = () => {
       window.removeEventListener("mouseup", handleMouseUp);
     };
   }, [isToolDragging]);
+
+  const [principleToggles, setPrincipleToggles] = useState({
+    badInnerSpacing: false,
+    badOuterSpacing: false,
+  });
+
+  useEffect(() => {
+    // always reset everything to normal first
+    setProps(getDefaultProps());
+
+    if (principleToggles.badInnerSpacing) {
+      setProps((props) => ({
+        ...props,
+        lineHeight: "1",
+        header: {
+          ...props.header,
+          titleGap: "0",
+          linksGap: "0",
+          blockPadding: "0",
+        },
+        hero: {
+          ...props.hero,
+          lineHeight: "1",
+          titleGap: "0",
+        },
+        cards: {
+          ...props.cards,
+          lineHeight: "1",
+          padding: "0",
+          cardGap: "0",
+        },
+        about: {
+          ...props.about,
+          lineHeight: "1",
+          gap: "0",
+        },
+        bubbles: {
+          ...props.bubbles,
+          lineHeight: "1",
+          gap: "0",
+          bubbleGap: "0",
+        },
+        footer: {
+          ...props.footer,
+          gap: "0",
+        },
+      }));
+    }
+
+    if (principleToggles.badOuterSpacing) {
+      setProps((props) => ({
+        ...props,
+        lineHeight: "1",
+        sectionGapPx: 0,
+        header: {
+          ...props.header,
+          sidePadding: "0",
+        },
+        hero: {
+          ...props.hero,
+          marginTop: "0",
+        },
+        cards: {
+          ...props.cards,
+          cardsGap: "0",
+        },
+        about: {
+          ...props.about,
+        },
+        bubbles: {
+          ...props.bubbles,
+          bubblesGap: "0",
+        },
+        footer: {
+          ...props.footer,
+        },
+      }));
+    }
+  }, [principleToggles, setProps]);
 
   return (
     <div
@@ -98,7 +179,35 @@ export const ModTool = () => {
         </div>
       </div>
 
-      {isToolOpen && <div className="mt-4">Content (Todo)</div>}
+      {isToolOpen && (
+        <div className="pt-4 mt-4 border-t flex flex-col gap-4 p-2">
+          <div className="flex justify-between">
+            <span>Bad Inner Spacing</span>
+            <Switch
+              checked={principleToggles.badInnerSpacing}
+              onCheckedChange={(state) =>
+                setPrincipleToggles((toggles) => ({
+                  ...toggles,
+                  badInnerSpacing: state,
+                }))
+              }
+            />
+          </div>
+
+          <div className="flex justify-between">
+            <span>Bad Outer Spacing</span>
+            <Switch
+              checked={principleToggles.badOuterSpacing}
+              onCheckedChange={(state) =>
+                setPrincipleToggles((toggles) => ({
+                  ...toggles,
+                  badOuterSpacing: state,
+                }))
+              }
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
