@@ -52,7 +52,7 @@ export const ModTool = () => {
   return (
     <div
       className={cn(
-        "absolute bg-white rounded-lg flex flex-col p-3 shadow-lg opacity-50 hover:opacity-100 transition-opacity duration-200 z-50"
+        "absolute bg-white rounded-lg flex flex-col p-3 shadow-lg opacity-50 hover:opacity-100 transition-opacity hover:delay-0 delay-1000 duration-200 z-50"
       )}
       style={{
         top: toolPosition.y - 4,

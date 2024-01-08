@@ -11,7 +11,7 @@ export default function Footer() {
       className="w-full text-center flex flex-col justify-center items-center text-white"
       style={{
         background: 'url("/images/footer.png")',
-        height: "420px",
+        height: "450px",
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
         gap: props.footer.gap,
