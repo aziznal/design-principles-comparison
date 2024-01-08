@@ -4,13 +4,14 @@ import Image from "next/image";
 import { useProps } from "./PropProvider";
 
 export default function Hero() {
-  const { props, setProps } = useProps();
+  const { props } = useProps();
 
   return (
     <div
       className="flex px-[146px] items-center"
       style={{
         marginTop: props.hero.marginTop,
+        color: props.hero.textColor,
       }}
     >
       <div
@@ -33,6 +34,7 @@ export default function Hero() {
             fontSize: props.hero.titleFontSize,
             fontWeight: "bold",
             lineHeight: props.hero.lineHeight,
+            color: props.hero.titleColor,
           }}
         >
           Smart Home <br /> Automation

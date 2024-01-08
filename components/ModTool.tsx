@@ -7,6 +7,7 @@ import {
   ChevronUpIcon,
   Contrast,
   GripVertical,
+  MousePointerClick,
   Palette,
   Ruler,
   Type,
@@ -16,7 +17,7 @@ import { Switch } from "./ui/switch";
 import { getDefaultProps } from "@/lib/default-props";
 
 export const ModTool = () => {
-  const { props, setProps } = useProps();
+  const { setProps } = useProps();
 
   const [toolPosition, setToolPosition] = useState({
     x: 0,
@@ -31,7 +32,7 @@ export const ModTool = () => {
     if (window === undefined) return;
 
     setToolPosition({
-      x: window === undefined ? 0 : window.innerWidth / 2,
+      x: window === undefined ? 0 : window.innerWidth / 2 - 150,
       y: 20,
     });
   }, []);
@@ -42,13 +43,9 @@ export const ModTool = () => {
 
     const handleMouseMove = (e: MouseEvent) => {
       if (isToolDragging) {
-        // adding scroll offset to account if the page is scrolled
-        const scrollX = window.scrollX || document.documentElement.scrollLeft;
-        const scrollY = window.scrollY || document.documentElement.scrollTop;
-
         setToolPosition({
-          x: e.clientX - 20 + scrollX,
-          y: e.clientY - 20 + scrollY,
+          x: e.clientX - 20,
+          y: e.clientY - 20,
         });
       }
     };
@@ -77,6 +74,10 @@ export const ModTool = () => {
     badFontWeight: false,
 
     badContrast: false,
+
+    // TODO: implement in default props
+    tooLittleInteractivity: false,
+    tooMuchInteractivity: false,
   });
 
   useEffect(() => {
@@ -151,12 +152,91 @@ export const ModTool = () => {
         },
       }));
     }
+
+    if (principleToggles.tooManyColors) {
+      setProps((props) => ({
+        ...props,
+        primaryColor: props.primaryColor,
+        primaryColorCopy1: "#61ce8b",
+        primaryColorCopy2: "#ceab61",
+
+        secondaryColor: props.secondaryColor,
+        secondaryColorCopy1: "#1a32cf",
+        secondaryColorCopy2: "#901acf",
+
+        tertiaryColor: props.tertiaryColor,
+        tertiaryColorCopy1: "#390b52",
+
+        header: {
+          ...props.header,
+        },
+        hero: {
+          ...props.hero,
+          titleColor: "#aab61c",
+          textColor: "#1c61b6",
+        },
+        cards: {
+          ...props.cards,
+          textColor: "#1cb661",
+        },
+        about: {
+          ...props.about,
+          textColor: "#b61c61",
+        },
+        bubbles: {
+          ...props.bubbles,
+          bubble1Color: "#1cb6b6",
+        },
+        footer: {
+          ...props.footer,
+          textColor: "#b61cb6",
+        },
+      }));
+    }
+
+    if (principleToggles.tooFewColors) {
+      setProps((props) => ({
+        ...props,
+        primaryColor: "#000",
+        primaryColorCopy1: "#000",
+        primaryColorCopy2: "#000",
+
+        secondaryColor: "#000",
+        secondaryColorCopy1: "#000",
+        secondaryColorCopy2: "#000",
+
+        tertiaryColor: "#000",
+        tertiaryColorCopy1: "#000",
+
+        header: {
+          ...props.header,
+        },
+        hero: {
+          ...props.hero,
+        },
+        cards: {
+          ...props.cards,
+        },
+        about: {
+          ...props.about,
+        },
+        bubbles: {
+          ...props.bubbles,
+          bubble1Color: "#000",
+          bubble2Color: "#fff",
+          bubble3Color: "#fff",
+        },
+        footer: {
+          ...props.footer,
+        },
+      }));
+    }
   }, [principleToggles, setProps]);
 
   return (
     <div
       className={cn(
-        "absolute bg-white rounded-lg flex flex-col p-3 shadow-lg z-50 border-2 border-red-300"
+        "fixed bg-white rounded-lg flex flex-col p-3 shadow-lg z-50 border-2 border-red-300"
       )}
       style={{
         top: toolPosition.y - 4,
@@ -251,6 +331,7 @@ export const ModTool = () => {
                 setPrincipleToggles((toggles) => ({
                   ...toggles,
                   tooManyColors: state,
+                  tooFewColors: false,
                 }))
               }
             />
@@ -265,6 +346,7 @@ export const ModTool = () => {
                 setPrincipleToggles((toggles) => ({
                   ...toggles,
                   tooFewColors: state,
+                  tooManyColors: false,
                 }))
               }
             />
@@ -322,6 +404,41 @@ export const ModTool = () => {
             />
           </div>
 
+          <h1 className="text-lg font-bold mt-4 pb-4 border-b flex items-center gap-2">
+            <span>Interactivity</span>
+            <MousePointerClick />
+          </h1>
+
+          <div className="flex justify-between">
+            <span>Too Little Interactivity</span>
+
+            <Switch
+              checked={principleToggles.tooLittleInteractivity}
+              onCheckedChange={(state) =>
+                setPrincipleToggles((toggles) => ({
+                  ...toggles,
+                  tooLittleInteractivity: state,
+                  tooMuchInteractivity: false,
+                }))
+              }
+            />
+          </div>
+
+          <div className="flex justify-between">
+            <span>Too Much Interactivity</span>
+
+            <Switch
+              checked={principleToggles.tooMuchInteractivity}
+              onCheckedChange={(state) =>
+                setPrincipleToggles((toggles) => ({
+                  ...toggles,
+                  tooMuchInteractivity: state,
+                  tooLittleInteractivity: false,
+                }))
+              }
+            />
+          </div>
+
           <button
             className="mt-4 self-end hover:bg-slate-100 p-3 py-2 rounded-lg border transition-colors border-slate-200 active:bg-slate-200"
             onClick={() => {
@@ -333,6 +450,8 @@ export const ModTool = () => {
                 badFontSize: false,
                 badFontWeight: false,
                 badContrast: false,
+                tooLittleInteractivity: false,
+                tooMuchInteractivity: false,
               });
             }}
           >

@@ -16,6 +16,7 @@ export default function ExamplePage() {
       className="flex flex-col"
       style={{
         gap: `${props.sectionGapPx}px`,
+        color: props.textColor,
       }}
     >
       <Header />

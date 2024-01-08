@@ -4,7 +4,7 @@ import { PropsWithChildren } from "react";
 import { useProps } from "./PropProvider";
 
 export default function Card({ children }: PropsWithChildren) {
-  const { props, setProps } = useProps();
+  const { props } = useProps();
 
   return (
     <div
@@ -14,6 +14,7 @@ export default function Card({ children }: PropsWithChildren) {
         padding: props.cards.padding,
         lineHeight: props.cards.lineHeight,
         gap: props.cards.cardGap,
+        color: props.cards.textColor,
       }}
     >
       {children}

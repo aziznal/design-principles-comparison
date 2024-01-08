@@ -4,7 +4,7 @@ import { PropsWithChildren } from "react";
 import { useProps } from "./PropProvider";
 
 export default function Button({ children }: PropsWithChildren) {
-  const { props, setProps } = useProps();
+  const { props } = useProps();
 
   return (
     <button

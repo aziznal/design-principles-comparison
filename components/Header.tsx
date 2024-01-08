@@ -6,17 +6,18 @@ import Button from "./Button";
 import { useProps } from "./PropProvider";
 
 export default function Header() {
-  const { props, setProps } = useProps();
+  const { props } = useProps();
 
   return (
     <div
-      className="flex justify-between items-center text-white"
+      className="flex justify-between items-center"
       style={{
         backgroundColor: props.tertiaryColor,
         paddingTop: props.header.blockPadding,
         paddingBottom: props.header.blockPadding,
         paddingLeft: props.header.sidePadding,
         paddingRight: props.header.sidePadding,
+        color: props.header.textColor,
       }}
     >
       <div
@@ -35,9 +36,9 @@ export default function Header() {
           gap: props.header.linksGap,
         }}
       >
-        <Link href="/about">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/about">Location</Link>
+        <Link href="/">Home</Link>
+        <Link href="/">About</Link>
+        <Link href="/">Location</Link>
 
         <Button>SIGN UP</Button>
       </nav>

@@ -9,20 +9,21 @@ type BubbleProps = {
 };
 
 export default function Bubble({ color, text, children }: BubbleProps) {
-  const { props, setProps } = useProps();
+  const { props } = useProps();
 
   return (
     <div
       className="flex items-center flex-1"
       style={{
         gap: props.bubbles.bubbleGap,
+        color: props.bubbles.textColor,
       }}
     >
       <div
         className="rounded-full flex items-center justify-center p-5 border-[10px]"
         style={{
           backgroundColor: color,
-          borderColor: props.secondaryColor,
+          borderColor: props.secondaryColorCopy1,
         }}
       >
         {children}

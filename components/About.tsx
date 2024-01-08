@@ -5,10 +5,13 @@ import { useProps } from "./PropProvider";
 import Button from "./Button";
 
 export default function About() {
-  const { props, setProps } = useProps();
+  const { props } = useProps();
 
   return (
-    <div className="flex w-full justify-between px-[146px]">
+    <div
+      className="flex w-full justify-between px-[146px]"
+      style={{ color: props.about.textColor }}
+    >
       <Image
         src="/images/about.png"
         alt="About"

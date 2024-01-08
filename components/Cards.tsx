@@ -5,19 +5,20 @@ import Card from "./Card";
 import { useProps } from "./PropProvider";
 
 export default function Cards() {
-  const { props, setProps } = useProps();
+  const { props } = useProps();
 
   return (
     <div
       className="flex px-[146px]"
       style={{
         gap: props.cards.cardsGap,
+        color: props.cards.textColor,
       }}
     >
       <Card>
         <CircleDollarSign
           size={136}
-          color={props.secondaryColor}
+          color={props.secondaryColorCopy1}
           className="shrink-0"
         />
 
@@ -31,7 +32,11 @@ export default function Cards() {
       </Card>
 
       <Card>
-        <Lightbulb size={136} color={props.primaryColor} className="shrink-0" />
+        <Lightbulb
+          size={136}
+          color={props.primaryColorCopy1}
+          className="shrink-0"
+        />
 
         <h3 className="text-3xl font-bold">
           Become Very <br /> Lazy
@@ -44,7 +49,11 @@ export default function Cards() {
       </Card>
 
       <Card>
-        <Cctv size={136} color={props.secondaryColor} className="shrink-0" />
+        <Cctv
+          size={136}
+          color={props.secondaryColorCopy2}
+          className="shrink-0"
+        />
 
         <h3 className="text-3xl font-bold">
           Invade All <br /> Privacy

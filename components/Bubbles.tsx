@@ -5,13 +5,14 @@ import Bubble from "./Bubble";
 import { useProps } from "./PropProvider";
 
 export default function Bubbles() {
-  const { props, setProps } = useProps();
+  const { props } = useProps();
 
   return (
     <div
       className="flex px-[146px]"
       style={{
         gap: props.bubbles.bubblesGap,
+        color: props.bubbles.textColor,
       }}
     >
       <Bubble

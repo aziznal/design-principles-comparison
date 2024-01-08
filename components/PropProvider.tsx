@@ -11,8 +11,18 @@ import {
 
 export type Props = {
   primaryColor: string;
+  primaryColorCopy1: string;
+  primaryColorCopy2: string;
+
   secondaryColor: string;
+  secondaryColorCopy1: string;
+  secondaryColorCopy2: string;
+
   tertiaryColor: string;
+  tertiaryColorCopy1: string;
+
+  textColor: string;
+
   lineHeight: string;
   sectionGapPx: number;
 
@@ -22,13 +32,17 @@ export type Props = {
 
     titleGap: string;
     linksGap: string;
+
+    textColor: string;
   };
 
   hero: {
     titleGap: string;
+    titleColor: string;
     titleFontSize: string;
     lineHeight: string;
     marginTop: string;
+    textColor: string;
   };
 
   cards: {
@@ -37,12 +51,14 @@ export type Props = {
     lineHeight: string;
     cardsGap: string;
     cardGap: string;
+    textColor: string;
   };
 
   about: {
     gap: string;
     titleFontSize: string;
     lineHeight: string;
+    textColor: string;
   };
 
   bubbles: {
@@ -54,10 +70,12 @@ export type Props = {
     bubble3Color: string;
 
     fontSize: string;
+    textColor: string;
   };
 
   footer: {
     gap: string;
+    textColor: string;
   };
 };
 
