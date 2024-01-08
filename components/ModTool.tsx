@@ -33,7 +33,7 @@ export const ModTool = () => {
 
     setToolPosition({
       x: window === undefined ? 0 : window.innerWidth / 2 - 150,
-      y: 20,
+      y: 10,
     });
   }, []);
 
@@ -75,7 +75,6 @@ export const ModTool = () => {
 
     badContrast: false,
 
-    // TODO: implement in default props
     tooLittleInteractivity: false,
     tooMuchInteractivity: false,
   });
