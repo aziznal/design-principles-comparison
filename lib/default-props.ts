@@ -17,6 +17,9 @@ export function getDefaultProps(): Props {
     sectionGapPx: 100,
     textColor: "#000",
 
+    interactiveEnabled: true,
+    overinteractiveEnabled: false,
+
     header: {
       blockPadding: "1rem",
       sidePadding: "146px",

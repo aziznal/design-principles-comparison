@@ -231,6 +231,31 @@ export const ModTool = () => {
         },
       }));
     }
+
+    if (principleToggles.badFontSize) {
+    }
+
+    if (principleToggles.badFontWeight) {
+    }
+
+    if (principleToggles.badContrast) {
+    }
+
+    if (principleToggles.tooLittleInteractivity) {
+      setProps((props) => ({
+        ...props,
+        interactiveEnabled: false,
+        overinteractiveEnabled: false,
+      }));
+    }
+
+    if (principleToggles.tooMuchInteractivity) {
+      setProps((props) => ({
+        ...props,
+        interactiveEnabled: true,
+        overinteractiveEnabled: true,
+      }));
+    }
   }, [principleToggles, setProps]);
 
   return (

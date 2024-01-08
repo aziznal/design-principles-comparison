@@ -26,6 +26,9 @@ export type Props = {
   lineHeight: string;
   sectionGapPx: number;
 
+  interactiveEnabled: boolean;
+  overinteractiveEnabled: boolean;
+
   header: {
     blockPadding: string;
     sidePadding: string;
