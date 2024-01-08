@@ -1,6 +1,13 @@
 "use client";
 
-import { PropsWithChildren, createContext, useContext, useState } from "react";
+import {
+  Dispatch,
+  PropsWithChildren,
+  SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from "react";
 
 export type Props = {
   primaryColor: string;
@@ -54,13 +61,8 @@ export type Props = {
   };
 };
 
-const PRIMARY_COLOR = "#617DCE";
-const SECONDARY_COLOR = "#1AC4CF";
-const TERTIARY_COLOR = "#1B2544";
-const LINE_HEIGHT = "1.5";
-
 const propContext = createContext<
-  { props: Props; setProps: (props: Props) => void } | undefined
+  { props: Props; setProps: Dispatch<SetStateAction<Props>> } | undefined
 >(undefined);
 
 // added nullish coalescing operator to prevent type error

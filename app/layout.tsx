@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ModTool } from "@/components/ModTool";
 import { PropProvider } from "@/components/PropProvider";
+import { getDefaultProps } from "@/lib/default-props";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,58 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className={cn(inter.className, "h-full")}>
-        <PropProvider
-          props={{
-            primaryColor: "#617DCE",
-            secondaryColor: "#1AC4CF",
-            tertiaryColor: "#1B2544",
-            lineHeight: "1.5",
-            sectionGapPx: 20,
-
-            header: {
-              blockPadding: "1rem",
-              sidePadding: "1rem",
-              titleGap: "1rem",
-              linksGap: "1rem",
-            },
-
-            hero: {
-              titleGap: "1rem",
-              titleFontSize: "2rem",
-              lineHeight: "1.5",
-              marginTop: "0",
-            },
-
-            cards: {
-              padding: "1rem",
-              lineHeight: "1.5",
-              height: "200px",
-              cardGap: "1rem",
-              cardsGap: "1rem",
-            },
-
-            about: {
-              gap: "1rem",
-              titleFontSize: "2rem",
-              lineHeight: "1.5",
-            },
-
-            bubbles: {
-              bubbleGap: "1rem",
-              bubblesGap: "1rem",
-
-              bubble1Color: "#BA3963",
-              bubble2Color: "#FFD600",
-              bubble3Color: "#00EDA6",
-
-              fontSize: "1rem",
-            },
-
-            footer: {
-              gap: "1rem",
-            },
-          }}
-        >
+        <PropProvider props={getDefaultProps()}>
           {children}
           <ModTool />
         </PropProvider>
