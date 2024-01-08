@@ -156,7 +156,7 @@ export const ModTool = () => {
   return (
     <div
       className={cn(
-        "absolute bg-white rounded-lg flex flex-col p-3 shadow-lg opacity-50 hover:opacity-100 transition-opacity hover:delay-0 delay-1000 duration-200 z-50"
+        "absolute bg-white rounded-lg flex flex-col p-3 shadow-lg z-50 border-2 border-red-300"
       )}
       style={{
         top: toolPosition.y - 4,
@@ -321,6 +321,23 @@ export const ModTool = () => {
               }
             />
           </div>
+
+          <button
+            className="mt-4 self-end hover:bg-slate-100 p-3 py-2 rounded-lg border transition-colors border-slate-200 active:bg-slate-200"
+            onClick={() => {
+              setPrincipleToggles({
+                badInnerSpacing: false,
+                badOuterSpacing: false,
+                tooManyColors: false,
+                tooFewColors: false,
+                badFontSize: false,
+                badFontWeight: false,
+                badContrast: false,
+              });
+            }}
+          >
+            Reset All
+          </button>
         </div>
       )}
     </div>
