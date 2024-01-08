@@ -383,9 +383,10 @@ export const ModTool = () => {
           </h1>
 
           <div className="flex justify-between">
-            <span>Bad Font Size</span>
+            <span>Bad Font Size (Todo)</span>
 
             <Switch
+              disabled={true}
               checked={principleToggles.badFontSize}
               onCheckedChange={(state) =>
                 setPrincipleToggles((toggles) => ({
@@ -397,9 +398,10 @@ export const ModTool = () => {
           </div>
 
           <div className="flex justify-between">
-            <span>Bad Font Weight</span>
+            <span>Bad Font Weight (Todo)</span>
 
             <Switch
+              disabled={true}
               checked={principleToggles.badFontWeight}
               onCheckedChange={(state) =>
                 setPrincipleToggles((toggles) => ({
@@ -416,9 +418,10 @@ export const ModTool = () => {
           </h1>
 
           <div className="flex justify-between">
-            <span>Bad Contrast</span>
+            <span>Bad Contrast (Todo)</span>
 
             <Switch
+              disabled={true}
               checked={principleToggles.badContrast}
               onCheckedChange={(state) =>
                 setPrincipleToggles((toggles) => ({
