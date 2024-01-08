@@ -34,7 +34,14 @@ export const ModTool = () => {
 
     const handleMouseMove = (e: MouseEvent) => {
       if (isToolDragging) {
-        setToolPosition({ x: e.clientX - 20, y: e.clientY - 20 });
+        // adding scroll offset to account if the page is scrolled
+        const scrollX = window.scrollX || document.documentElement.scrollLeft;
+        const scrollY = window.scrollY || document.documentElement.scrollTop;
+
+        setToolPosition({
+          x: e.clientX - 20 + scrollX,
+          y: e.clientY - 20 + scrollY,
+        });
       }
     };
 
