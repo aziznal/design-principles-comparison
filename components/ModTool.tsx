@@ -2,7 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { useProps } from "./PropProvider";
-import { ChevronDownIcon, ChevronUpIcon, GripVertical } from "lucide-react";
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+  Contrast,
+  GripVertical,
+  Palette,
+  Ruler,
+  Type,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Switch } from "./ui/switch";
 import { getDefaultProps } from "@/lib/default-props";
@@ -61,6 +69,14 @@ export const ModTool = () => {
   const [principleToggles, setPrincipleToggles] = useState({
     badInnerSpacing: false,
     badOuterSpacing: false,
+
+    tooManyColors: false,
+    tooFewColors: false,
+
+    badFontSize: false,
+    badFontWeight: false,
+
+    badContrast: false,
   });
 
   useEffect(() => {
@@ -187,9 +203,15 @@ export const ModTool = () => {
       </div>
 
       {isToolOpen && (
-        <div className="pt-4 mt-4 border-t flex flex-col gap-4 p-2">
+        <div className="pt-4 mt-4 flex flex-col gap-4 p-2">
+          <h1 className="text-lg font-bold border-b pb-4 flex items-center gap-2">
+            <span>Spacing</span>
+            <Ruler />
+          </h1>
+
           <div className="flex justify-between">
             <span>Bad Inner Spacing</span>
+
             <Switch
               checked={principleToggles.badInnerSpacing}
               onCheckedChange={(state) =>
@@ -203,12 +225,98 @@ export const ModTool = () => {
 
           <div className="flex justify-between">
             <span>Bad Outer Spacing</span>
+
             <Switch
               checked={principleToggles.badOuterSpacing}
               onCheckedChange={(state) =>
                 setPrincipleToggles((toggles) => ({
                   ...toggles,
                   badOuterSpacing: state,
+                }))
+              }
+            />
+          </div>
+
+          <h1 className="text-lg font-bold border-b pb-4 mt-4 flex items-center gap-2">
+            <span>Color</span>
+            <Palette />
+          </h1>
+
+          <div className="flex justify-between">
+            <span>Too Many Colors</span>
+
+            <Switch
+              checked={principleToggles.tooManyColors}
+              onCheckedChange={(state) =>
+                setPrincipleToggles((toggles) => ({
+                  ...toggles,
+                  tooManyColors: state,
+                }))
+              }
+            />
+          </div>
+
+          <div className="flex justify-between">
+            <span>Too Few Colors</span>
+
+            <Switch
+              checked={principleToggles.tooFewColors}
+              onCheckedChange={(state) =>
+                setPrincipleToggles((toggles) => ({
+                  ...toggles,
+                  tooFewColors: state,
+                }))
+              }
+            />
+          </div>
+
+          <h1 className="text-lg font-bold mt-4 pb-4 border-b flex items-center gap-2">
+            <span>Font</span>
+            <Type />
+          </h1>
+
+          <div className="flex justify-between">
+            <span>Bad Font Size</span>
+
+            <Switch
+              checked={principleToggles.badFontSize}
+              onCheckedChange={(state) =>
+                setPrincipleToggles((toggles) => ({
+                  ...toggles,
+                  badFontSize: state,
+                }))
+              }
+            />
+          </div>
+
+          <div className="flex justify-between">
+            <span>Bad Font Weight</span>
+
+            <Switch
+              checked={principleToggles.badFontWeight}
+              onCheckedChange={(state) =>
+                setPrincipleToggles((toggles) => ({
+                  ...toggles,
+                  badFontWeight: state,
+                }))
+              }
+            />
+          </div>
+
+          <h1 className="text-lg font-bold mt-4 pb-4 border-b flex items-center gap-2">
+            <span>Contrast</span>
+            <Contrast />
+          </h1>
+
+          <div className="flex justify-between">
+            <span>Bad Contrast</span>
+
+            <Switch
+              checked={principleToggles.badContrast}
+              onCheckedChange={(state) =>
+                setPrincipleToggles((toggles) => ({
+                  ...toggles,
+                  badContrast: state,
                 }))
               }
             />
