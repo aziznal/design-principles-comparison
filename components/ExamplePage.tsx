@@ -13,7 +13,7 @@ export default function ExamplePage() {
 
   return (
     <div
-      className="flex flex-col"
+      className="flex flex-col w-[1330px]"
       style={{
         gap: `${props.sectionGapPx}px`,
         color: props.textColor,
