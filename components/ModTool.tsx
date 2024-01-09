@@ -232,12 +232,104 @@ export const ModTool = () => {
     }
 
     if (principleToggles.badFontSize) {
+      setProps((props) => ({
+        ...props,
+        header: {
+          ...props.header,
+          logoFontSize: "1rem",
+          linkFontSize: "1.25rem",
+        },
+        hero: {
+          ...props.hero,
+          titleFontSize: "2.5rem",
+          textFontSize: "1.3rem",
+        },
+        cards: {
+          ...props.cards,
+          titleFontSize: "1.4rem",
+        },
+        about: {
+          ...props.about,
+          titleFontSize: "1.4rem",
+          textFontSize: "1.1rem",
+        },
+        bubbles: {
+          ...props.bubbles,
+          fontSize: "0.8rem",
+        },
+        footer: {
+          ...props.footer,
+          titleFontSize: "1.4rem",
+          textFontSize: "1.1rem",
+        },
+      }));
     }
 
     if (principleToggles.badFontWeight) {
+      setProps((props) => ({
+        ...props,
+        header: {
+          ...props.header,
+          logoFontWeight: "400",
+          linkFontWeight: "400",
+        },
+        hero: {
+          ...props.hero,
+          titleFontWeight: "400",
+          textFontWeight: "400",
+        },
+        cards: {
+          ...props.cards,
+          titleFontWeight: "400",
+        },
+        about: {
+          ...props.about,
+          titleFontWeight: "400",
+          textFontWeight: "bold",
+        },
+        bubbles: {
+          ...props.bubbles,
+          fontWeight: "400",
+        },
+        footer: {
+          ...props.footer,
+          titleFontWeight: "400",
+          textFontWeight: "400",
+        },
+      }));
     }
 
     if (principleToggles.badContrast) {
+      setProps((props) => ({
+        ...props,
+        badContrastEnabled: true,
+        header: {
+          ...props.header,
+          textColor: "#5a5ad1",
+          linkColor: "#000",
+        },
+        hero: {
+          ...props.hero,
+          titleColor: "#000",
+          textColor: "#aaa",
+        },
+        cards: {
+          ...props.cards,
+          textColor: "#aaa",
+        },
+        about: {
+          ...props.about,
+          textColor: "#666",
+        },
+        bubbles: {
+          ...props.bubbles,
+          textColor: "#bbb",
+        },
+        footer: {
+          ...props.footer,
+          textColor: "#5a5ad1",
+        },
+      }));
     }
 
     if (principleToggles.tooLittleInteractivity) {
@@ -382,10 +474,9 @@ export const ModTool = () => {
           </h1>
 
           <div className="flex justify-between">
-            <span>Bad Font Size (Todo)</span>
+            <span>Bad Font Size</span>
 
             <Switch
-              disabled={true}
               checked={principleToggles.badFontSize}
               onCheckedChange={(state) =>
                 setPrincipleToggles((toggles) => ({
@@ -397,10 +488,9 @@ export const ModTool = () => {
           </div>
 
           <div className="flex justify-between">
-            <span>Bad Font Weight (Todo)</span>
+            <span>Bad Font Weight</span>
 
             <Switch
-              disabled={true}
               checked={principleToggles.badFontWeight}
               onCheckedChange={(state) =>
                 setPrincipleToggles((toggles) => ({
@@ -417,10 +507,9 @@ export const ModTool = () => {
           </h1>
 
           <div className="flex justify-between">
-            <span>Bad Contrast (Todo)</span>
+            <span>Bad Text Contrast</span>
 
             <Switch
-              disabled={true}
               checked={principleToggles.badContrast}
               onCheckedChange={(state) =>
                 setPrincipleToggles((toggles) => ({

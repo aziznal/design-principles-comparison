@@ -19,9 +19,23 @@ export default function Footer() {
         color: props.footer.textColor,
       }}
     >
-      <h1 className="text-4xl font-bold">Make Your Life Easier</h1>
+      <h1
+        style={{
+          fontSize: props.footer.titleFontSize,
+          fontWeight: props.footer.titleFontWeight,
+          lineHeight: props.footer.titleLineHeight,
+        }}
+      >
+        Make Your Life Easier
+      </h1>
 
-      <p className="text-2xl">
+      <p
+        style={{
+          fontSize: props.footer.textFontSize,
+          fontWeight: props.footer.textFontWeight,
+          lineHeight: props.footer.textLineHeight,
+        }}
+      >
         and sign up for a lifetime non-revocable <br /> membership with home
         helper
       </p>

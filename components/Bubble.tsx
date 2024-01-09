@@ -32,6 +32,7 @@ export default function Bubble({ color, text, children }: BubbleProps) {
       <p
         style={{
           fontSize: props.bubbles.fontSize,
+          fontWeight: props.bubbles.fontWeight,
         }}
       >
         {text}

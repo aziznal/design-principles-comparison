@@ -32,7 +32,7 @@ export default function Hero() {
         <h1
           style={{
             fontSize: props.hero.titleFontSize,
-            fontWeight: "bold",
+            fontWeight: props.hero.titleFontWeight,
             lineHeight: props.hero.lineHeight,
             color: props.hero.titleColor,
           }}
@@ -40,7 +40,7 @@ export default function Hero() {
           Smart Home <br /> Automation
         </h1>
 
-        <p className="w-[440px]">
+        <p className="w-[440px]" style={{ fontSize: props.hero.textFontSize }}>
           Make your life easier by forgetting about the little things. Never
           thing again about whether you left the door open or the oven on.
         </p>

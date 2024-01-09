@@ -27,7 +27,8 @@ export default function Button({ children }: PropsWithChildren) {
         color: "white",
         backgroundColor: props.secondaryColor,
         borderRadius: "0.5rem",
-        fontWeight: "bold",
+        fontWeight: props.button.fontWeight,
+        fontSize: props.button.fontSize,
       }}
       disabled={props.interactiveEnabled && isLoading}
       onClick={() => {

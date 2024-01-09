@@ -10,9 +10,12 @@ export default function Card({ children }: PropsWithChildren) {
   return (
     <div
       className={cn(
-        "flex flex-col rounded-xl border shadow-lg shadow-gray flex-1 shrink-0",
-        props.interactiveEnabled && "hover:bg-slate-100 transition-all duration-75",
+        "flex flex-col rounded-xl border flex-1 shrink-0",
+        !props.badContrastEnabled && "shadow-lg shadow-gray",
+        props.interactiveEnabled &&
+          "hover:bg-slate-100 transition-all duration-75",
         props.overinteractiveEnabled &&
+          !props.badContrastEnabled &&
           "hover:shadow-2xl hover:shadow-gray-900 duration-300 cursor-pointer hover:bg-slate-100 transition-all hover:scale-105"
       )}
       style={{

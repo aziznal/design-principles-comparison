@@ -29,6 +29,8 @@ export type Props = {
   interactiveEnabled: boolean;
   overinteractiveEnabled: boolean;
 
+  badContrastEnabled: boolean;
+
   header: {
     blockPadding: string;
     sidePadding: string;
@@ -37,15 +39,24 @@ export type Props = {
     linksGap: string;
 
     textColor: string;
+    logoFontSize: string;
+
+    linkFontSize: string;
+    linkFontWeight: string;
   };
 
   hero: {
     titleGap: string;
     titleColor: string;
     titleFontSize: string;
+    titleFontWeight: string;
+
     lineHeight: string;
     marginTop: string;
+
     textColor: string;
+    textFontSize: string;
+    textFontWeight: string;
   };
 
   cards: {
@@ -55,13 +66,21 @@ export type Props = {
     cardsGap: string;
     cardGap: string;
     textColor: string;
+
+    titleFontSize: string;
+    titleFontWeight: string;
+    titleLineHeight: string;
   };
 
   about: {
     gap: string;
     titleFontSize: string;
+    titleFontWeight: string;
     lineHeight: string;
     textColor: string;
+
+    textFontSize: string;
+    textFontWeight: string;
   };
 
   bubbles: {
@@ -73,12 +92,27 @@ export type Props = {
     bubble3Color: string;
 
     fontSize: string;
+    fontWeight: string;
+
     textColor: string;
   };
 
   footer: {
     gap: string;
     textColor: string;
+
+    titleFontSize: string;
+    titleFontWeight: string;
+    titleLineHeight: string;
+
+    textFontSize: string;
+    textFontWeight: string;
+    textLineHeight: string;
+  };
+
+  button: {
+    fontSize: string;
+    fontWeight: string;
   };
 };
 

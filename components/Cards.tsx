@@ -22,7 +22,14 @@ export default function Cards() {
           className="shrink-0"
         />
 
-        <h3 className="text-3xl font-bold">
+        <h3
+          className="text-black"
+          style={{
+            fontWeight: props.cards.titleFontWeight,
+            fontSize: props.cards.titleFontSize,
+            lineHeight: props.cards.titleLineHeight,
+          }}
+        >
           Spend Half Your <br /> Salary
         </h3>
 
@@ -38,7 +45,14 @@ export default function Cards() {
           className="shrink-0"
         />
 
-        <h3 className="text-3xl font-bold">
+        <h3
+          className="text-black"
+          style={{
+            fontWeight: props.cards.titleFontWeight,
+            fontSize: props.cards.titleFontSize,
+            lineHeight: props.cards.titleLineHeight,
+          }}
+        >
           Become Very <br /> Lazy
         </h3>
 
@@ -55,7 +69,14 @@ export default function Cards() {
           className="shrink-0"
         />
 
-        <h3 className="text-3xl font-bold">
+        <h3
+          className="text-black"
+          style={{
+            fontWeight: props.cards.titleFontWeight,
+            fontSize: props.cards.titleFontSize,
+            lineHeight: props.cards.titleLineHeight,
+          }}
+        >
           Invade All <br /> Privacy
         </h3>
 

@@ -29,7 +29,15 @@ export default function Header() {
         }}
       >
         <BrainCircuit className="rotate-90" size={70} />
-        <span className="font-bold text-2xl">Home Helper</span>
+
+        <span
+          className="font-bold text-2xl"
+          style={{
+            fontSize: props.header.logoFontSize,
+          }}
+        >
+          Home Helper
+        </span>
       </div>
 
       <nav
@@ -60,6 +68,10 @@ function CustomLink({ children }: PropsWithChildren) {
         props.overinteractiveEnabled &&
           "hover:font-bold hover:scale-110 hover:text-blue-400 duration-300"
       )}
+      style={{
+        fontSize: props.header.linkFontSize,
+        fontWeight: props.header.linkFontWeight,
+      }}
     >
       {children}
     </Link>
