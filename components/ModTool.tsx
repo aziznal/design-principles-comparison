@@ -27,6 +27,8 @@ export const ModTool = () => {
   const [isToolOpen, setIsToolOpen] = useState(false);
   const [isToolDragging, setIsToolDragging] = useState(false);
 
+  const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(false);
+
   // initial positioning
   useEffect(() => {
     if (window === undefined) return;
@@ -352,7 +354,8 @@ export const ModTool = () => {
   return (
     <div
       className={cn(
-        "fixed bg-white rounded-lg flex flex-col p-3 shadow-lg z-50 border-2 border-red-300"
+        "fixed bg-white rounded-lg flex flex-col p-3 shadow-lg z-50 border-2 border-red-300",
+        isDarkModeEnabled && "bg-slate-900 text-slate-300"
       )}
       style={{
         top: toolPosition.y - 4,
@@ -379,7 +382,7 @@ export const ModTool = () => {
           <span className="text-sm font-bold">Mod Tool</span>
         </div>
 
-        <div className="cursor-pointer">
+        <div className="cursor-pointer flex items-center gap-2">
           {!isToolOpen && (
             <ChevronDownIcon
               className="text-gray-400"
@@ -395,6 +398,11 @@ export const ModTool = () => {
               onClick={() => setIsToolOpen(false)}
             />
           )}
+
+          <Switch
+            checked={isDarkModeEnabled}
+            onCheckedChange={(state) => setIsDarkModeEnabled(state)}
+          />
         </div>
       </div>
 
