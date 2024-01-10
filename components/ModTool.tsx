@@ -398,11 +398,6 @@ export const ModTool = () => {
               onClick={() => setIsToolOpen(false)}
             />
           )}
-
-          <Switch
-            checked={isDarkModeEnabled}
-            onCheckedChange={(state) => setIsDarkModeEnabled(state)}
-          />
         </div>
       </div>
 
@@ -581,6 +576,15 @@ export const ModTool = () => {
           >
             Reset All
           </button>
+
+          <div className="flex flex-col items-end justify-end [&>*]:scale-50 [&>*]:origin-right">
+            <span className="-mb-2">Dark Mode</span>
+
+            <Switch
+              checked={isDarkModeEnabled}
+              onCheckedChange={(state) => setIsDarkModeEnabled(state)}
+            />
+          </div>
         </div>
       )}
     </div>
