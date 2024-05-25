@@ -8,20 +8,20 @@ export default function HomePage() {
       <div className="mb-6 text-center flex flex-col gap-2">
         <h1 className="text-2xl font-bold">Design Principles</h1>
 
-        <div className="flex flex-col gap-2 text-zinc-500 text-sm text-balance max-w-[500px]">
-          <p>
+        <div className="flex flex-col items-center justify-center gap-2 text-zinc-500 text-balance max-w-[550px]">
+          <p className="whitespace-nowrap text-lg">
             A demonstration of how adhering to design principles can make or break a web site /
             component.
           </p>
 
-          <p>
+          <p className="text-sm">
             The examples section is a list where each principle is implemented in a component where
             it{`'`}s applied in one and not applied / incorrectly applied in the other.
           </p>
 
-          <p>
-            The demo page is a bunch of the design principles applied together and any combination of
-            them can be toggled on or off usign the mod sideabr.
+          <p className="text-sm">
+            The demo page is a bunch of the design principles applied together and any combination
+            of them can be toggled on or off usign the mod sideabr.
           </p>
         </div>
       </div>
