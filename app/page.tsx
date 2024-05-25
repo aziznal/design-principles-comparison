@@ -1,32 +1,65 @@
-import ExamplePage from "@/components/ExamplePage";
-import { PropProvider } from "@/components/PropProvider";
-import { getDefaultProps } from "@/lib/default-props";
+import { LucideColumns2, LucideGithub, LucideRows4 } from "lucide-react";
+import Link from "next/link";
+import { ReactNode } from "react";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div
-      className="flex justify-center items-start w-full h-full "
-      style={{ zoom: "67%" }}
-    >
-      <div className="flex-1 flex flex-col h-full pt-6 w-full items-end">
-        <h1 className="text-2xl font-bold text-center pb-8 w-full">Default</h1>
+    <div className="h-[100vh] flex flex-col items-center justify-center">
+      <div className="mb-6 text-center flex flex-col gap-2">
+        <h1 className="text-2xl font-bold">Design Principles</h1>
 
-        <p className="-mt-6 w-full text-center">
-          Note: zoom out if this page is cut off from the left
-        </p>
+        <div className="flex flex-col gap-2 text-zinc-500 text-sm text-balance max-w-[500px]">
+          <p>
+            A demonstration of how adhering to design principles can make or break a web site /
+            component.
+          </p>
 
-        {/* This provider overrides the one surrounding the entire app */}
-        <PropProvider props={getDefaultProps()}>
-          <ExamplePage />
-        </PropProvider>
+          <p>
+            The examples section is a list where each principle is implemented in a component where
+            it{`'`}s applied in one and not applied / incorrectly applied in the other.
+          </p>
+
+          <p>
+            The demo page is a bunch of the design principles applied together and any combination of
+            them can be toggled on or off usign the mod sideabr.
+          </p>
+        </div>
       </div>
 
-      <div className="border-2 border-gray-300 flex self-stretch" />
+      <div className="flex gap-6">
+        <SectionLink href="/examples">
+          <LucideRows4 size={36} />
+          Examples Page
+        </SectionLink>
 
-      <div className="flex-1 flex flex-col h-full pt-6">
-        <h1 className="text-2xl font-bold text-center pb-8">Modified</h1>
-        <ExamplePage />
+        <SectionLink href="/demo-page">
+          <LucideColumns2 size={36} />
+          Demo Page
+        </SectionLink>
+      </div>
+
+      <div className="text-center w-full py-8 flex gap-1 items-center justify-center">
+        <span>Made by</span>
+
+        <Link
+          href="https://github.com/aziznal/design-principles-comparison"
+          target="_blank"
+          className="flex gap-2 hover:text-rose-700 text-rose-500"
+        >
+          aziznal <LucideGithub />
+        </Link>
       </div>
     </div>
+  );
+}
+
+function SectionLink(props: { href: string; children: ReactNode }) {
+  return (
+    <Link
+      href={props.href}
+      className="h-[200px] w-[200px] flex flex-col items-center justify-center text-center gap-1 border rounded-lg hover:bg-zinc-100 transition-colors duration-75"
+    >
+      {props.children}
+    </Link>
   );
 }
